@@ -14,3 +14,7 @@ let g:Powerline_symbols = 'fancy'
 " always show statusbar
 set laststatus=2
 
+if has("gui_running")
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+endif
+
