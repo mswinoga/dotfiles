@@ -124,7 +124,7 @@ if filereadable(expand("~/.vim/settings.vim"))
 endif
 
 colorscheme solarized
-colorscheme solarized
+set background=dark
 
 " General editing
 nnoremap <Leader>w :w<CR>
