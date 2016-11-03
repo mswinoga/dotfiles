@@ -30,8 +30,8 @@ let mapleader="\<Space>"
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
+if filereadable(expand("~/.vim/plug.vim"))
+  source ~/.vim/plug.vim
 endif
 
 " ================ Turn Off Swap Files ==============
@@ -124,12 +124,18 @@ if filereadable(expand("~/.vim/settings.vim"))
 endif
 
 colorscheme solarized
-if !has('gui_running')
+if has('gui_running')
+  " open in fullscreen mode
+  " set fuoptions=maxvert,maxhorz
+  " au GUIEnter * set fullscreen
+else
   set background=dark
 endif
 
 " General editing
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>\ :vspl<CR>
+nnoremap <Leader>= :spl<CR>
 
 " clear search highlight with Enter
 nnoremap <CR> :noh<CR><CR>
