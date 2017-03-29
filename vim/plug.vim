@@ -27,7 +27,7 @@ let g:goyo_width=120
 nnoremap <leader>z :Goyo<CR>
 
 Plug 'blueyed/vim-diminactive'
-DimInactiveOn
+"DimInactiveOn
 
 "--------------------------------------------------
 " Nerdtree
