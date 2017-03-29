@@ -12,6 +12,13 @@ set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 
+" set cursor line in current window only
+augroup CursorLineOnlyInActiveWindow
+autocmd!
+autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+augroup END
+
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
@@ -79,6 +86,7 @@ set nofoldenable        "dont fold by default
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*pyc
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
 set wildignore+=*DS_Store*
@@ -142,9 +150,6 @@ nnoremap <CR> :noh<CR><CR>
 
 " Yank to clipboard (on Mac install https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
 set clipboard=unnamed
-
-" vim-easyclip binds 'move' to 'm', rebind 'add mark' to gm
-nnoremap gm m
 
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | cd ~ | endif
 
