@@ -15,6 +15,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'kien/rainbow_parentheses.vim'
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 Plug 'svermeulen/vim-easyclip'
 " vim-easyclip binds 'move' to 'm', rebind 'add mark' to gm
 nnoremap gm m
@@ -84,8 +90,14 @@ Plug 'Raimondi/delimitMate'
 " syntastic
 "--------------------------------------------------
 Plug 'scrooloose/syntastic'
-let g:syntastic_enable_signs=0
+let g:syntastic_enable_signs=1
 let g:syntastic_enable_balloons = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["scala"] }
+nnoremap <Leader>s :SyntasticCheck<CR>
 
 
 "--------------------------------------------------
@@ -106,6 +118,9 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
@@ -167,6 +182,21 @@ Plug 'nathanaelkane/vim-indent-guides'
 " vim-json
 "--------------------------------------------------
 Plug 'elzr/vim-json'
+
+
+" elm
+"--------------------------------------------------
+" elm.vim
+"--------------------------------------------------
+Plug 'elmcast/elm-vim'
+let g:elm_format_autosave = 0
+let g:elm_syntastic_show_warnings = 1
+let g:elm_setup_keybindings = 1
+augroup ElmGroup
+  autocmd!
+  autocmd filetype elm nnoremap <buffer> <LocalLeader>x :!elm make % --output %:r.js; elm run %:r.js<CR>
+  autocmd filetype elm nnoremap <buffer> <LocalLeader>f :ElmFormat<CR>
+augroup END
 
 
 call plug#end()            " required
