@@ -1,5 +1,6 @@
-autoload
+#autoload
 backups
 bundle
 vim-git
-plugged
+#plugged
+plugged/YouCompleteMe

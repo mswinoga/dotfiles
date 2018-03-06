@@ -60,10 +60,10 @@ let g:ctrlp_map = '<Leader>O'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$|\v[\/]dist$',
+      \ 'file': '\v\.(exe|so|dll|gz)$'
       \ }
- 
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | enew | exe 'CtrlP' 
 
@@ -110,18 +110,18 @@ nnoremap <Leader>s :SyntasticCheck<CR>
 "--------------------------------------------------
 " YouCompleteMe
 "--------------------------------------------------
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
-let g:ycm_key_list_select_completion = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-let g:ycm_key_list_accept_completion = ['<C-y>']
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"Plug 'Valloric/YouCompleteMe', { 'on': [] }
+"let g:ycm_key_list_select_completion = ['<C-j>', '<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+"let g:ycm_key_list_accept_completion = ['<C-y>']
+"let g:ycm_complete_in_comments = 1
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_semantic_triggers = {
+"     \ 'elm' : ['.'],
+"     \}
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 "--------------------------------------------------

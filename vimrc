@@ -96,6 +96,7 @@ set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
+set wildignore+=dist/**
 set wildignore+=*.png,*.jpg,*.gif,*.so,*.swp,*.zip,*.gz,*.tar
 
 "
